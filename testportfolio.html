@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json">
+    <title>Dark Mode Portfolio</title>
+    <style>
+        body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #180c06; /* rich dark brown */
+  color: #f5e6c4; /* soft golden tint for text */
+}
+
+h2 {
+  color: #d4af37; /* metallic gold for headings */
+}
+
+.project-card {
+  background: #3b2415; /* slightly lighter brown for cards */
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(212, 175, 55, 0.4); /* subtle golden border */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); /* golden glow */
+}
+
+/* Glassmorphism bottom tab bar with golden tint */
+.tab-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(60, 40, 20, 0.6); /* translucent dark brown */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border: 1px solid rgba(212, 175, 55, 0.3); /* golden border */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tab-bar button {
+  background: none;
+  border: none;
+  color: #f5e6c4; /* golden tint for text */
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.tab-bar button.active {
+  color: #d4af37; /* metallic gold highlight */
+  font-weight: bold;
+  transform: scale(1.1);
+}
+
+.tab-bar button:hover {
+  color: #d4af37;
+}
+
+
+      section {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
+        padding: 60px 20px;
+        max-width: 900px;
+        margin: auto;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+      }
+      section.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        position: relative;
+      }
+     
+      
+    </style>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(() => console.log('Service Worker Registered'));
+  }
+</script>
+
+  </head>
+  <body>
+    <!-- Sections -->
+    <section id="about" class="active">
+      <h2>About Me</h2>
+      <p>
+        Hello! I’m John, a developer passionate about sleek, modern web
+        experiences.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>
+            A responsive dark-mode portfolio built with HTML, CSS, and
+            JavaScript.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>Mobile App</h3>
+          <p>
+            A cross-platform app showcasing modern UI and smooth animations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: johndoe@example.com</p>
+      <p>LinkedIn: <a href="#">linkedin.com/in/johndoe</a></p>
+    </section>
+
+    <!-- Bottom Tab Bar -->
+    <div class="tab-bar">
+      <button class="active" onclick="showSection('about', this)">About</button>
+      <button onclick="showSection('projects', this)">Projects</button>
+      <button onclick="showSection('contact', this)">Contact</button>
+    </div>
+
+    <script>
+      function showSection(sectionId, btn) {
+        // Hide all sections with fade-out
+        document.querySelectorAll("section").forEach((sec) => {
+          sec.classList.remove("active");
+        });
+        // Show selected section with fade-in
+        const target = document.getElementById(sectionId);
+        target.classList.add("active");
+        // Update tab bar active state
+        document
+          .querySelectorAll(".tab-bar button")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
