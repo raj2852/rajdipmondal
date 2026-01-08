@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Rajdip mondal</title>
 
 <script>
   if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js')
-      .then(() => console.log('Service Worker Registered'));
-  }
+      .then(reg => console.log('Service worker registered:', reg))
+      .catch(err => console.error('Service worker registration failed:', err));
+  });
+}
 </script>
 
   </head>
@@ -19,7 +24,7 @@
     <!-- Sections -->
     <section id="about" class="active"> 
       <div class="about__container"> 
-        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400" alt="Portrait of the person or brand" class="about__image" /> 
+        <img src="./bg.JPG" alt="Portrait of the person or brand" class="about__image" /> 
         <div class="about__content"> 
           <h2 class="about__title">Hi, I'm Rajdip Mondal</h2> 
           <h2 class="about__subtitle">AI-Augmented Developer | Crafting Intelligent Systems</h2>
@@ -50,22 +55,23 @@
     </section>
 
     <section id="workexperience">
-      <h2 class="about__title">Work Experience</h2>
-      <div class="timeline__container"> 
-        <div class="timeline__item left"> 
-          <div class="timeline__icon">💻</div> 
-          <div class="timeline__content"> 
-            <h3>TATA Consultancy Services - Systems Engineer (TCS Digital)</h3> <span class="timeline__date">2023 – Present</span>
-             <p>Building responsive web apps using React, Tailwind CSS, and Next.js at TechNova.</p> 
-            </div>
-          </div> 
-       <div class="timeline__item right"> 
-        <div class="timeline__icon">🎓</div> 
-        <div class="timeline__content"> 
-          <h3>Trigital Technologies Pvt. Ltd - Junior Technical Staff Intern Developer</h3> <span class="timeline__date">2021 – 2022</span> <p>Assisted in building internal tools and dashboards using Vue.js and Firebase.</p> 
-        </div>
-       </div>
-       </div>
+      <h2 class="about__title">Journey so far</h2>
+      <div class="timeline-section">
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="timeline-node" data-content="class10">📚</div>
+    <div class="timeline-node" data-content="class12">🏫</div>
+    <div class="timeline-node" data-content="college">🎓</div>
+    <div class="timeline-node" data-content="job1">👨🏻‍💻</div>
+    <div class="timeline-node" data-content="job2">💻</div>
+  </div>
+  <!-- Common content area -->
+  <div id="timeline-content" class="timeline-content">
+    <p>Select a milestone above to see details.</p>
+  </div>
+</div>
+
     </section>
 
     <section id="contact" >
@@ -195,21 +201,28 @@
       }
       
       
+  const nodes = document.querySelectorAll('.timeline-node');
+  const contentDiv = document.getElementById('timeline-content');
 
-      
-const items = document.querySelectorAll('.timeline__item');
+  const contentMap = {
+    class10: "<h3>Class 10 - AISSE</h3><p>2016 – D.A.V Model School, Durgapur<br/><br/>Scored a perfect <b>cgpa 10/10</b>.</p>",
+    class12: "<h3>Class 12 - SSE</h3><p>2018 – D.A.V Model School, Durgapur<br/><br/>Scored <b>86%</b> overall , subjects include <b>Physics, Chemistry, Mathematics, Biology, English, Physical Education</b>.</p>",
+    college: "<h3>College</h3><p><b>Batch of 2023 Computer Science and Engineering</b> – Netaji Subhash Engineering College(MAKAUT University)<br/><ul><li>Graduated with <b>9.21 cgpa</b>.</li><br/><li>Was an <b>active member of the web dev team of Google Developer Students club (GDSCNSEC)</b>.</li><br/><li>Participated in tech fests with certifications on robotics.</li></ul></p>",
+    job1: "<h3>Internship</h3><p>2021-2022 – Internship at <b>Trigital technologies Pvt. Ltd.</b><br/><br/>Got selected for an internship opportunity during the 3rd year of my college based on my publicly hosted github profile gigs. As a junior technical dev <ul><li>I have worked on multiple apps for business operation which are built on <b>react-native, payment gateway apk integration and presented the same to clients.</b></li><br/><li>I worked on the apps of <b>India's two major cable operators namely Fastway and BRIPL</b>.</li><br/> <li>I have worked for one of <b>Indias largest MSO(multi service operator)supporting a customer base of 5 Million customers and operated by 5000 operators</b>.</li><br/><li>I have had <b>hands-on experience with POS (Point Of Service) device and technology</b>.</li><br/><li>Trained my next batch of joiners on the same technologies, resolving doubt sessions while serving the notie period.</li></ul></p>",
+    job2: "<h3>Current Role</h3><p>2023-present – <b>Systems Engineer(TCS Digital)</b> at <b>TATA Consultancy Services</b><br/><ul><li>Working as a <b>Full-Stack javascript based developer</b> for one of UK's major <b>Telecom giant</b>.</li><br/><li><b>Developing mission-critical functionalities for a notification and POS services system impacting around 30 million UK customers</b> daily.</li><br/><li>Architecting full-stack solutions using <b>Freemarker(for dynamic notification content rendering), Springboot and JavaScript based backend with SQL database for logic handling</b>.</li><br/><li>Enhanced system <b>efficiency by restructuring code logic, cutting 30% of redundant lines</b> and improving performance.Recognized for producing robust, high‑quality code with minimal defects.</li><br/><li><b>Operating deployments</b> across multiple test environments via interfaces like <b>Jenkins build, Superputty and WinSCP</b>.</li><br/><li>Currently <b>exploring GenAI tools, building RAG-based applications using LangChain, Node.js, and open-source LLM APIs</b>.</li></ul></p>"
+  };
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+  nodes.forEach(node => {
+    node.addEventListener('click', () => {
+      // Remove active class from all nodes
+      nodes.forEach(n => n.classList.remove('active'));
+      // Add active class to clicked node
+      node.classList.add('active');
+      // Update content
+      const key = node.getAttribute('data-content');
+      contentDiv.innerHTML = contentMap[key];
+    });
   });
-}, {
-  threshold: 0.2
-});
-
-items.forEach(item => observer.observe(item));
 
 
     </script>

@@ -5,9 +5,12 @@ self.addEventListener('install', event => {
           './',
           './index.html',
           './style.css',
-          './script.js',
-          './icon-192.png',
-          './icon-512.png'
+          './workscript.js',
+          './bg.JPG',
+          './favicon.ico',
+          './mediheal.png',
+          './safar.png',
+          './tastebuds.png'
         ]);
       })
     );
