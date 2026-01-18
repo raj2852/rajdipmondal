@@ -1,20 +1,27 @@
 const achievements = [
   {
     id: 1,
+    title: "Academical", 
+    image: "./academical.png",
+    description: "<ul><li>A purpose-built platform designed to support the everyday needs of educators and learners.</li><li>A full stack <b>MERN app, that uses react-pdf plugin</b> helping teachers focus on the content while it <b>converts them to PDFs</b>.</li><li>The <b>created pdfs can be downloaded and assigned to enlisted students</b>. Admins take hold of every action from assigning tasks to managing accounts and content</li>.</ul>",
+    tag: "https://tryacademical.onrender.com"
+  },
+  {
+    id: 2,
     title: "Tastebuds", 
     image: "./tastebuds.png",
     description: "<ul><li>A unique food ordering app with a stand-apart idea.</li><li>Built using <b>ExpressJs, MongoDB, Hbs, REST API</b>.</li><li>Customers can customize both the food they order and also the delivery date and time as per their conenience.</li><li>A social problem of hunger is also addressed in a unique way.</li></ul>",
     tag: "https://tastebuds-t0jz.onrender.com/"
   },
   {
-    id: 1,
+    id: 3,
     title: "Mediheal",  
     image: "./mediheal.png",
     description: "<ul><li>A meditational web-app that helps combat daily life stress and negativities.</li><li>Mood is set as per user's choice and content is customized as per the mood.</li><li>Built using <b>HTML, CSS, JavaScript,Facebook API,Twitter API, Whatsapp API and random quote generating API</b>.</li></ul>",
     tag: "https://raj2852.github.io/Mediheal"
   },
   {
-    id: 1,
+    id: 4,
     title: "Safar",    
     image: "./safar.png",
     description: "<ul><li>Safar includes all the infos needed to plan a travel destination included under a single roof so that users don't have to toggle among multiple tabs doing individual search.</li><li>Built using <b>HTML, CSS, JavaScript and Google maps places autosearch and autocomplete API</b>.</li></ul>",
