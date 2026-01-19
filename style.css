@@ -181,7 +181,7 @@ section.active {
   position: absolute;
   /* Dynamic width: wider on desktop, narrower on mobile */
   width: clamp(280px, 25vw, 400px);
-  height: clamp(380px, 60vh, 300px);
+  height: clamp(380px, 60vh, 420px);
   background: var(--glass);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);

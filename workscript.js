@@ -3,7 +3,7 @@ const achievements = [
     id: 1,
     title: "Academical", 
     image: "./academical.png",
-    description: "<ul><li>A purpose-built platform designed to support the everyday needs of educators and learners.</li><li>A full stack <b>MERN app, that uses react-pdf plugin</b> helping teachers focus on the content while it <b>converts them to PDFs</b>.</li><li>The <b>created pdfs can be downloaded and assigned to enlisted students</b>. Admins take hold of every action from assigning tasks to managing accounts and content</li>.</ul>",
+    description: "<ul><li>A purpose-built platform designed to support the everyday needs of educators and learners.</li><li>A <b>full-stack MERN app</b>that uses the <b>react-pdf plugin</b>, providing teachers with an interface to focus on the content input while it <b>converts it to PDFs</b>.</li><li>The <b>created PDFs can be downloaded and assigned to enrolled students</b>. Admins take hold of every action, from assigning tasks to managing accounts and content.</li></ul>",
     tag: "https://tryacademical.onrender.com"
   },
   {
