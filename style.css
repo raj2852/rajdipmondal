@@ -180,8 +180,8 @@ section.active {
 .carousel-card {
   position: absolute;
   /* Dynamic width: wider on desktop, narrower on mobile */
-  width: clamp(280px, 25vw, 400px);
-  height: clamp(380px, 60vh, 420px);
+  width: 25vw;
+  height: 50vh;
   background: var(--glass);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
@@ -299,7 +299,6 @@ section.active {
 
 /* Controls */
 .carousel-controls {
-  margin-top: 40px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -392,10 +391,10 @@ section.active {
   :root {
     --shift-x: 38vw;
   }
-
+  
   .carousel-card {
     width: 75vw; /* Almost full width on mobile */
-    height: 450px;
+    height: 470px;
   }
 
   .carousel-card.left {
@@ -415,18 +414,6 @@ section.active {
   .dot.active {
     width: 12px;
   }
-}
-
-/* Bottom Controls */
-.carousel-controls {
-  margin-top: -60px;
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 8px 16px;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  gap: 15px;
 }
 
 .timeline-section {
