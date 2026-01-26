@@ -160,7 +160,6 @@ section.active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-height: 80vh;
   perspective: 2000px; /* Increased for better depth on wide screens */
   overflow: hidden;
   color: white;
@@ -235,7 +234,7 @@ section.active {
 
 /* Card Inner Styling */
 .card-image {
-  height: 40%;
+  height: 30%;
   background-size:cover;
   background-position: center;
   position: relative;
@@ -271,7 +270,7 @@ section.active {
 }
 
 .card-content ul {
-  font-size: 13px;
+  font-size: 0.75rem;
   font-style:italic;
   margin-top:4px;
   margin-bottom:4px;
@@ -379,11 +378,50 @@ section.active {
   :root {
     --shift-x: 32vw;
   }
+  .card-image {
+  height: 40%;
+  background-size:cover;
+  background-position: center;
+  position: relative;
+  padding: 15px;
+  }
 }
+
 /* Tablets */
 @media (max-width: 1024px) {
   :root {
     --shift-x: 35vw;
+  }
+
+  .carousel-card {
+    width: 50vw; /* Wider cards on tablets */
+    height: 470px;
+  }
+
+  .card-image {
+  height: 40%;
+  background-size:cover;
+  background-position: center;
+  position: relative;
+  padding: 15px;
+  }
+
+  .carousel-card.left {
+    transform: translate3d(-45%, 0, -250px) rotateY(45deg) scale(0.8);
+  }
+
+  .carousel-card.right {
+    transform: translate3d(45%, 0, -250px) rotateY(-45deg) scale(0.8);
+  }
+  .pagination-indicators {
+    gap: 5px;
+  }
+  .dot {
+    width: 4px;
+    height: 4px;
+  }
+  .dot.active {
+    width: 12px;
   }
 }
 /* Mobile (Keep cards closer so they don't fall off screen) */
